@@ -1,0 +1,35 @@
+{
+  "insightDashboardBanner": "Insight Dashboard",
+  "dateRangeSelector": "*Date_Range_Selector",
+  "facilitySelector": "*Facility_Selector",
+  "specialtySelector": "*Specialty_Selector",
+  "dataUpdatedMessage": ".updatedData",
+
+  "monthlySummaryIframe":{
+    "monthlySummaryIframeSelector": "*Monthly_Summary_Iframe",
+    "monthlySummaryDashboardBanner": "*Monthly_Summary_Dashboard",
+    "exportIcon": ".export-icon",
+    "exportAsJPEG": ".export-as-jpeg",
+    "exportAsPNG": ".export-as-png",
+    "rotateGraph": ".rotate-graph",
+    "toFullScreen": ".fullscreen-icon"
+  },
+  "comorbidityIframe":{
+    "comorbidityIframeSelector": "*Comorbidity_Summary_Iframe",
+    "comorbidityDashboardBanner": "*Comorbidity_Dashboard",
+    "exportIcon": ".export-icon",
+    "exportAsJPEG": ".export-as-jpeg",
+    "exportAsPNG": ".export-as-png",
+    "rotateGraph": ".rotate-graph",
+    "toFullScreen": ".fullscreen-icon"
+  },
+  "providerScorecardIFrame":{
+    "providerDashboardBanner": "*Provider_Scorecard",
+    "exportIcon": ".export-icon",
+    "exportAsJPEG": ".export-as-jpeg",
+    "exportAsPNG": ".export-as-png",
+    "rotateGraph": ".rotate-graph",
+    "toFullScreen": ".fullscreen-icon",
+    "providerSelectionDropdown": ".provider-selection-dropdown"
+  }
+}

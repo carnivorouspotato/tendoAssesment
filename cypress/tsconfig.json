@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "skipLibCheck": true,
+    "lib": ["es2016", "dom"],
+    "types": ["cypress", "cypress-real-events", "node"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "module": "commonjs" // Add this line
+  },
+  "include": ["**/*.ts", "src/**/*.ts"],
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["_build"]
+  }
+}
