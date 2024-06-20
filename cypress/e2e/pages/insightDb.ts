@@ -147,10 +147,10 @@ export default class insightDashboard {
         // @ts-ignore
         if (isUserAdmin === 'admin') {
           cy.get(insightDbSelectors.monthlySummaryIframe.exportAsPNG).and(insightDbSelectors.monthlySummaryIframe.exportAsPNG).should('be.visible').click().then(() => {
-            cy.get('.successMessage').should('be.visible').and('contain.text', 'Exported Successfully');
+            cy.get(insightDbSelectors.exportSuccessfulMessage).should('be.visible').and('contain.text', 'Exported Successfully');
           });
           cy.get(insightDbSelectors.monthlySummaryIframe.exportAsJPEG).and(insightDbSelectors.monthlySummaryIframe.exportAsJPEG).should('be.visible').click().then(() => {
-            cy.get('.successMessage').should('be.visible').and('contain.text', 'Exported Successfully');
+            cy.get(insightDbSelectors.exportSuccessfulMessage).should('be.visible').and('contain.text', 'Exported Successfully');
           });
         }
         cy.get(insightDbSelectors.monthlySummaryIframe.rotateGraph).should('be.visible').click().then(() => {
@@ -162,14 +162,37 @@ export default class insightDashboard {
   }
   checkComorbidityGraph(){
     cy.get(insightDbSelectors.comorbidityIframe.comorbidityDashboardBanner).should('contain.text', 'Comorbidity Opportunities by Specialty').then(() => {
-      cy.get(insightDbSelectors.comorbidityIframe.exportIcon).should('be.visible').then(() => {
+      cy.get(insightDbSelectors.comorbidityIframe.exportIcon).should('be.visible').click().then(() => {
           //@ts-ignore
           if (isUserAdmin === 'admin') {
             cy.get(insightDbSelectors.comorbidityIframe.exportAsPNG).and(insightDbSelectors.comorbidityIframe.exportAsPNG).should('be.visible').click().then(() => {
-              cy.get('.successMessage').should('be.visible').and('contain.text', 'Exported Successfully');
+              cy.get(insightDbSelectors.exportSuccessfulMessage).should('be.visible').and('contain.text', 'Exported Successfully');
             });
+            cy.get(insightDbSelectors.comorbidityIframe.exportIcon).click()
             cy.get(insightDbSelectors.comorbidityIframe.exportAsJPEG).and(insightDbSelectors.comorbidityIframe.exportAsJPEG).should('be.visible').click().then(() => {
-              cy.get('.successMessage').should('be.visible').and('contain.text', 'Exported Successfully');
+              cy.get(insightDbSelectors.exportSuccessfulMessage).should('be.visible').and('contain.text', 'Exported Successfully');
+            });
+          }else{
+            return;
+          }
+        cy.get(insightDbSelectors.comorbidityIframe.rotateGraph).should('be.visible').click().then(() => {
+          cy.get(insightDbSelectors.comorbidityIframe.comorbidityIframeSelector).invoke('css', 'transform').should('contain', 'rotate(90deg)');
+        });
+        cy.get(insightDbSelectors.comorbidityIframe.toFullScreen).should('be.visible');
+      });
+    });
+  }
+  checkProviderScoreCard(){
+    cy.get(insightDbSelectors.providerScorecardIFrame.providerDashboardBanner).should('contain.text', 'Provider Scorecard').then(() => {
+      cy.get(insightDbSelectors.providerScorecardIFrame.exportIcon).should('be.visible').click().then(() => {
+          //@ts-ignore
+          if (isUserAdmin === 'admin') {
+            cy.get(insightDbSelectors.comorbidityIframe.exportAsPNG).and(insightDbSelectors.comorbidityIframe.exportAsPNG).should('be.visible').click().then(() => {
+              cy.get(insightDbSelectors.exportSuccessfulMessage).should('be.visible').and('contain.text', 'Exported Successfully');
+            });
+            cy.get(insightDbSelectors.comorbidityIframe.exportIcon).click()
+            cy.get(insightDbSelectors.comorbidityIframe.exportAsJPEG).and(insightDbSelectors.comorbidityIframe.exportAsJPEG).should('be.visible').click().then(() => {
+              cy.get(insightDbSelectors.exportSuccessfulMessage).should('be.visible').and('contain.text', 'Exported Successfully');
             });
           }else{
             return;
